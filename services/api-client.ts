@@ -4,6 +4,7 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios, { HttpStatusCode } from 'axios';
 import config from '@/lib/config';
+import { toast } from 'sonner';
 
 class AxiosCustom {
     private instance: AxiosInstance;
@@ -53,9 +54,14 @@ class AxiosCustom {
             (response: AxiosResponse) => response,
             (error: AxiosError) => {
                 const { response } = error;
+                const message = (response?.data as any)?.message || error.message || 'Something went wrong';
+
                 if (response?.status === HttpStatusCode.Unauthorized) {
                     return this.handleTokenRefresh(error);
                 }
+
+                // Show toast for other errors
+                toast.error(message);
 
                 throw error;
             },
