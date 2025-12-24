@@ -77,7 +77,7 @@ class AxiosCustom {
             this.isRefreshing = true;
 
             try {
-                const response = await this.instance.post('/auth/refresh');
+                const response = await this.instance.post('/api/auth/refresh');
                 const newToken = response.data?.data?.accessToken;
 
                 if (newToken) {
