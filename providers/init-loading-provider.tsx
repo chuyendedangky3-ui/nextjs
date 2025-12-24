@@ -1,8 +1,8 @@
 'use client';
 
+import { paths } from '@/lib/constants';
 import apiClient from '@/services/api-client';
 import { refreshTokenService } from '@/services/auth.service';
-import { paths } from '@/lib/constants';
 import { store } from '@/store';
 import { clearToken, setAccessToken } from '@/store/features/auth/auth.slice';
 import { clearUser, fetchCurrentUser } from '@/store/features/users/user.slice';

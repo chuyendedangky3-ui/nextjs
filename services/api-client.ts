@@ -1,9 +1,9 @@
+import config from '@/lib/config';
 import { AppStore } from '@/store';
 import { setAccessToken } from '@/store/features/auth/auth.slice';
 import { EnhancedStore } from '@reduxjs/toolkit';
 import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios, { HttpStatusCode } from 'axios';
-import config from '@/lib/config';
 import { toast } from 'sonner';
 
 class AxiosCustom {

@@ -1,5 +1,5 @@
-import apiClient from './api-client';
 import { LoginDto } from '@/types/auth';
+import apiClient from './api-client';
 
 const prefix = '/api/auth';
 
